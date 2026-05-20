@@ -1,0 +1,4 @@
+source;share/pcl_ground_segmentation/local_setup.bash
+source;share/pcl_ground_segmentation/local_setup.dsv
+source;share/pcl_ground_segmentation/local_setup.sh
+source;share/pcl_ground_segmentation/local_setup.zsh

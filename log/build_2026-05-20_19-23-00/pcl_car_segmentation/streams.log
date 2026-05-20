@@ -1,0 +1,173 @@
+[0.022s] Invoking command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ninad/ros2_pcl_segmentation/pcl_car_segmentation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation
+[0.318s] -- The C compiler identification is GNU 11.4.0
+[0.899s] -- The CXX compiler identification is GNU 11.4.0
+[1.599s] -- Detecting C compiler ABI info
+[1.772s] -- Detecting C compiler ABI info - done
+[1.777s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.778s] -- Detecting C compile features
+[1.778s] -- Detecting C compile features - done
+[1.781s] -- Detecting CXX compiler ABI info
+[1.977s] -- Detecting CXX compiler ABI info - done
+[1.982s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.982s] -- Detecting CXX compile features
+[1.982s] -- Detecting CXX compile features - done
+[1.994s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.096s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.146s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.191s] -- Checking for module 'eigen3'
+[2.196s] --   Found eigen3, version 3.4.0
+[2.212s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[2.212s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.231s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization 
+[2.901s] -- Checking for module 'flann'
+[2.907s] --   Found flann, version 1.9.1
+[3.328s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[3.328s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[3.352s] -- Looking for pthread.h
+[3.523s] -- Looking for pthread.h - found
+[3.523s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.679s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.680s] -- Found Threads: TRUE  
+[3.682s] -- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  
+[3.767s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX 
+[3.995s] -- Found MPI_C: /usr/lib/x86_64-linux-gnu/libmpi.so (found version "3.1") 
+[3.996s] -- Found MPI: TRUE (found version "3.1") found components: C 
+[3.997s] -- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") 
+[4.391s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[5.012s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.37") 
+[5.019s] -- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") 
+[7.373s] -- Found X11: /usr/include   
+[7.373s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[7.593s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[7.593s] -- Looking for gethostbyname
+[7.790s] -- Looking for gethostbyname - found
+[7.790s] -- Looking for connect
+[7.990s] -- Looking for connect - found
+[7.990s] -- Looking for remove
+[8.165s] -- Looking for remove - found
+[8.165s] -- Looking for shmat
+[8.319s] -- Looking for shmat - found
+[8.319s] -- Looking for IceConnectionNumber in ICE
+[8.464s] -- Looking for IceConnectionNumber in ICE - found
+[10.199s] -- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.4.7") 
+[10.200s] -- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  
+[10.201s] -- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.3") 
+[10.202s] -- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.2.5") 
+[10.454s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+[10.610s] -- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.3.0")  
+[10.615s] -- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.11.1") 
+[10.621s] -- Found utf8cpp: /usr/include/utf8cpp  
+[10.686s] -- Checking for module 'libusb-1.0'
+[10.692s] --   Found libusb-1.0, version 1.0.25
+[10.829s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[10.832s] -- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") 
+[10.832s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[11.094s] -- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") 
+[11.095s] [0m** WARNING ** io features related to pcap will be disabled[0m
+[11.096s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[14.369s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[14.374s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[14.393s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[17.225s] -- Found Qhull version 8.0.2
+[20.866s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[24.471s] -- looking for PCL_COMMON
+[24.472s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[24.472s] -- looking for PCL_KDTREE
+[24.472s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[24.472s] -- looking for PCL_OCTREE
+[24.473s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[24.473s] -- looking for PCL_SEARCH
+[24.473s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[24.473s] -- looking for PCL_SAMPLE_CONSENSUS
+[24.474s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[24.474s] -- looking for PCL_FILTERS
+[24.474s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[24.475s] -- looking for PCL_2D
+[24.475s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[24.475s] -- looking for PCL_GEOMETRY
+[24.475s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[24.475s] -- looking for PCL_IO
+[24.476s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[24.476s] -- looking for PCL_FEATURES
+[24.476s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[24.476s] -- looking for PCL_ML
+[24.477s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[24.477s] -- looking for PCL_SEGMENTATION
+[24.478s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[24.478s] -- looking for PCL_VISUALIZATION
+[24.478s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[24.478s] -- looking for PCL_SURFACE
+[24.479s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[24.479s] -- looking for PCL_REGISTRATION
+[24.480s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[24.480s] -- looking for PCL_KEYPOINTS
+[24.480s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[24.480s] -- looking for PCL_TRACKING
+[24.481s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[24.481s] -- looking for PCL_RECOGNITION
+[24.481s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[24.481s] -- looking for PCL_STEREO
+[24.482s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[24.482s] -- looking for PCL_APPS
+[24.482s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[24.483s] -- looking for PCL_IN_HAND_SCANNER
+[24.483s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[24.483s] -- looking for PCL_MODELER
+[24.483s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[24.483s] -- looking for PCL_POINT_CLOUD_EDITOR
+[24.484s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[24.484s] -- looking for PCL_OUTOFCORE
+[24.484s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[24.484s] -- looking for PCL_PEOPLE
+[24.485s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[24.485s] -- Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt;FLANN::FLANN;QHULL::QHULL  
+[24.490s] -- Found rclcpp: 16.0.17 (/opt/ros/humble/share/rclcpp/cmake)
+[24.616s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[24.621s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[24.632s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[24.647s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[24.663s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[24.718s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[24.722s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[25.423s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[26.407s] -- Found FastRTPS: /opt/ros/humble/include  
+[27.987s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[28.060s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[28.095s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[28.128s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[28.204s] -- Configuring done
+[28.257s] -- Generating done
+[28.267s] -- Build files have been written to: /home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation
+[28.284s] Invoked command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ninad/ros2_pcl_segmentation/pcl_car_segmentation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation
+[28.284s] Invoking command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation -- -j20 -l20
+[28.315s] [ 50%] [32mBuilding CXX object CMakeFiles/cloud_pre_processing.dir/src/cloud_pre_processing.cpp.o[0m
+[28.315s] [ 50%] [32mBuilding CXX object CMakeFiles/car_segmentation_by_clusters.dir/src/car_segmentation_by_clusters.cpp.o[0m
+[38.601s] [ 75%] [32m[1mLinking CXX executable cloud_pre_processing[0m
+[39.292s] [100%] [32m[1mLinking CXX executable car_segmentation_by_clusters[0m
+[39.746s] [100%] Built target cloud_pre_processing
+[40.295s] [100%] Built target car_segmentation_by_clusters
+[40.301s] Invoked command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation -- -j20 -l20
+[40.303s] Invoking command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation
+[40.307s] -- Install configuration: ""
+[40.307s] -- Execute custom install script
+[40.308s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/lib/pcl_car_segmentation/car_segmentation_by_clusters
+[40.312s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/lib/pcl_car_segmentation/cloud_pre_processing
+[40.317s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/launch/bring_kitti.launch.py
+[40.321s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/launch/bring_rviz.launch.py
+[40.327s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/config/car_segmentation_config.rviz
+[40.331s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/ament_index/resource_index/package_run_dependencies/pcl_car_segmentation
+[40.335s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/ament_index/resource_index/parent_prefix_path/pcl_car_segmentation
+[40.338s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/environment/ament_prefix_path.sh
+[40.343s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/environment/ament_prefix_path.dsv
+[40.347s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/environment/path.sh
+[40.351s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/environment/path.dsv
+[40.355s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/local_setup.bash
+[40.359s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/local_setup.sh
+[40.363s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/local_setup.zsh
+[40.366s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/local_setup.dsv
+[40.370s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/package.dsv
+[40.373s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/ament_index/resource_index/packages/pcl_car_segmentation
+[40.378s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/cmake/pcl_car_segmentationConfig.cmake
+[40.382s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/cmake/pcl_car_segmentationConfig-version.cmake
+[40.386s] -- Symlinking: /home/ninad/ros2_pcl_segmentation/install/pcl_car_segmentation/share/pcl_car_segmentation/package.xml
+[40.393s] Invoked command in '/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation

@@ -1,0 +1,1 @@
+/home/ninad/ros2_pcl_segmentation/build/pcl_human_segmentation/ament_cmake_environment_hooks/local_setup.bash
