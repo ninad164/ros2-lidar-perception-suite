@@ -1,0 +1,22 @@
+cloud_pre_processing:
+  ros__parameters:
+    voxel_leaf_size: 0.1
+    ransac_distance_threshold: 0.3
+    input_topic: "/kitti/point_cloud"
+    ground_topic: "/pcl_car_segmentation/ground_cloud"
+    filtered_topic: "/pcl_car_segmentation/filtered_cloud"
+
+car_segmentation:
+  ros__parameters:
+    cluster_voxel_leaf_size: 0.2
+    cluster_tolerance: 0.6
+    min_cluster_size: 100
+    max_cluster_size: 700
+    min_length: 1.0
+    max_length: 5.0
+    min_width: 1.0
+    max_width: 5.0
+    min_height: 1.0
+    max_height: 2.0
+    input_topic: "/pcl_car_segmentation/filtered_cloud"
+    output_topic: "/pcl_car_segmentation/car_segmentation"
