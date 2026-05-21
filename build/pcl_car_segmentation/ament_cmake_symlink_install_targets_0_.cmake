@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ninad/ros2_pcl_segmentation/build/pcl_car_segmentation/car_segmentation_by_clusters" "TARGETS" "car_segmentation_by_clusters" "DESTINATION" "lib/pcl_car_segmentation")

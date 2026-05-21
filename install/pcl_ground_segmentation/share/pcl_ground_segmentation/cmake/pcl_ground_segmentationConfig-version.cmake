@@ -1,1 +1,0 @@
-/home/ninad/ros2_pcl_segmentation/build/pcl_ground_segmentation/ament_cmake_core/pcl_ground_segmentationConfig-version.cmake

@@ -1,8 +1,0 @@
-source;share/pcl_ground_segmentation/hook/cmake_prefix_path.ps1
-source;share/pcl_ground_segmentation/hook/cmake_prefix_path.dsv
-source;share/pcl_ground_segmentation/hook/cmake_prefix_path.sh
-source;share/pcl_ground_segmentation/local_setup.bash
-source;share/pcl_ground_segmentation/local_setup.dsv
-source;share/pcl_ground_segmentation/local_setup.ps1
-source;share/pcl_ground_segmentation/local_setup.sh
-source;share/pcl_ground_segmentation/local_setup.zsh

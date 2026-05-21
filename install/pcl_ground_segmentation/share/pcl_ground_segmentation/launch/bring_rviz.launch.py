@@ -1,1 +1,0 @@
-/home/ninad/ros2_pcl_segmentation/pcl_ground_segmentation/launch/bring_rviz.launch.py
