@@ -20,12 +20,12 @@ def generate_launch_description():
         'car_segmentation_config.rviz'
     )
 
-    kitti_publisher = Node(
-        package='ros2_kitti_publishers',
-        executable='kitti_publishers',
-        name='kitti_publishers',
-        output='screen'
-    )
+    # kitti_publisher = Node(
+    #     package='ros2_kitti_publishers',
+    #     executable='kitti_publishers',
+    #     name='kitti_publishers',
+    #     output='screen'
+    # )
 
     cloud_pre_processing = Node(
         package='pcl_car_segmentation',
@@ -52,7 +52,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        kitti_publisher,
+        #kitti_publisher,
         cloud_pre_processing,
         car_segmentation,
         rviz
