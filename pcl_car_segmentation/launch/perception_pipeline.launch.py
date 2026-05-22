@@ -2,6 +2,8 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
@@ -20,19 +22,23 @@ def generate_launch_description():
         'car_segmentation_config.rviz'
     )
 
-    # kitti_publisher = Node(
-    #     package='ros2_kitti_publishers',
-    #     executable='kitti_publishers',
-    #     name='kitti_publishers',
-    #     output='screen'
-    # )
+    input_topic_arg = DeclareLaunchArgument(
+        'input_topic',
+        default_value='/kitti/point_cloud',
+        description='Input PointCloud2 topic'
+    )
+
+    input_topic = LaunchConfiguration('input_topic')
 
     cloud_pre_processing = Node(
         package='pcl_car_segmentation',
         executable='cloud_pre_processing',
         name='cloud_pre_processing',
         output='screen',
-        parameters=[params_file]
+        parameters=[
+            params_file,
+            {'input_topic': input_topic}
+        ]
     )
 
     car_segmentation = Node(
@@ -52,7 +58,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        #kitti_publisher,
+        input_topic_arg,
         cloud_pre_processing,
         car_segmentation,
         rviz
