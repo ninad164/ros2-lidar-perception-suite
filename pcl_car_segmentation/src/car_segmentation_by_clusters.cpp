@@ -58,8 +58,15 @@ class CarSegmentation: public rclcpp ::Node{
             min_height_ = this->declare_parameter<double>("min_height", 1.0);
             max_height_ = this->declare_parameter<double>("max_height", 2.0);
 
-            input_topic_ = this->declare_parameter<std::string>("input_topic", input_topic_);
-            output_topic_ = this->declare_parameter<std::string>("output_topic", output_topic_);
+            input_topic_ = this->declare_parameter<std::string>(
+                "input_topic",
+                "/pcl_car_segmentation/filtered_cloud"
+            );
+
+            output_topic_ = this->declare_parameter<std::string>(
+                "output_topic",
+                "/pcl_car_segmentation/car_segmentation"
+            );
             
             if (!std::filesystem::exists(folder_path)) {
                 std::filesystem::create_directories(folder_path);
@@ -71,6 +78,10 @@ class CarSegmentation: public rclcpp ::Node{
             );
 
             car_segmentation_publisher = this -> create_publisher<sensor_msgs::msg::PointCloud2>(output_topic_, 10);
+            bounding_box_publisher = this->create_publisher<visualization_msgs::msg::MarkerArray>(
+                "/pcl_car_segmentation/bounding_boxes",
+                10
+            );
         }
 
     private:
@@ -98,12 +109,16 @@ class CarSegmentation: public rclcpp ::Node{
 
     void point_cloud_callback(const sensor_msgs::msg::PointCloud2::SharedPtr input_cloud){
 
+        auto start_time = std::chrono::steady_clock::now();
+        int accepted_clusters = 0;
         pcl::PointCloud<PointT> :: Ptr pcl_cloud (new pcl:: PointCloud<PointT>) ;
         pcl::fromROSMsg(*input_cloud, *pcl_cloud);
 
         pcl::PointCloud<PointT> :: Ptr single_segmented_cluster (new pcl:: PointCloud<PointT>) ;
         pcl::PointCloud<PointT> :: Ptr all_clusters (new pcl:: PointCloud<PointT>) ;
         std::vector<pcl::PointIndices> cluster_indices;
+        visualization_msgs::msg::MarkerArray marker_array;
+        int marker_id = 0;
         pcl::EuclideanClusterExtraction<PointT> ecludian_cluster_extractor;
         pcl::search::KdTree<PointT>::Ptr tree (new pcl:: search ::KdTree<PointT>());
 
@@ -148,7 +163,35 @@ class CarSegmentation: public rclcpp ::Node{
                 height >= min_height_ && height <= max_height_) {
                         std::string file_name = "car_cluster_" + std::to_string(cluster_indices[i].indices.size()) + "_" + std::to_string(length) + "_" + std::to_string(width) + "_" + std::to_string(height) + ".pcd";
                         //save_cluster(reasonable_cluster, file_name);
+                        visualization_msgs::msg::Marker marker;
+
+                        marker.header = input_cloud->header;
+                        marker.ns = "car_bounding_boxes";
+                        marker.id = marker_id++;
+                        marker.type = visualization_msgs::msg::Marker::CUBE;
+                        marker.action = visualization_msgs::msg::Marker::ADD;
+
+                        marker.pose.position.x = (min_pt[0] + max_pt[0]) / 2.0;
+                        marker.pose.position.y = (min_pt[1] + max_pt[1]) / 2.0;
+                        marker.pose.position.z = (min_pt[2] + max_pt[2]) / 2.0;
+
+                        marker.pose.orientation.w = 1.0;
+
+                        marker.scale.x = length;
+                        marker.scale.y = width;
+                        marker.scale.z = height;
+
+                        marker.color.r = 1.0;
+                        marker.color.g = 0.0;
+                        marker.color.b = 0.0;
+                        marker.color.a = 0.5;
+
+                        marker.lifetime = rclcpp::Duration::from_seconds(0.1);
+
+                        marker_array.markers.push_back(marker);
+                        
                         *all_clusters += *reasonable_cluster;
+                        accepted_clusters++;
                     }
 
             }
@@ -158,10 +201,27 @@ class CarSegmentation: public rclcpp ::Node{
         pcl::toROSMsg(*all_clusters, *car_segmentation_msg);
         car_segmentation_msg -> header = input_cloud -> header;
         car_segmentation_publisher -> publish(*car_segmentation_msg);
+        bounding_box_publisher->publish(marker_array);
 
+        auto end_time = std::chrono::steady_clock::now();
 
+        auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+            end_time - start_time
+        ).count();
+
+        RCLCPP_INFO_THROTTLE(
+            this->get_logger(),
+            *this->get_clock(),
+            2000,
+            "Input points: %zu | Accepted clusters: %d | Output points: %zu | Processing time: %ld ms",
+            pcl_cloud->size(),
+            accepted_clusters,
+            all_clusters->size(),
+            duration_ms
+        );
     }
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr car_segmentation_publisher;
+    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr bounding_box_publisher;
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>:: SharedPtr filtered_cloud_subscriber;
 };
 
