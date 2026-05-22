@@ -1,4 +1,3 @@
-```markdown
 # ROS2 Point Cloud Perception Suite
 
 A modular ROS 2 Humble perception pipeline for point cloud preprocessing, ground segmentation, Euclidean clustering, 3D bounding-box visualization, and centroid-based object tracking using PCL and RViz2.
