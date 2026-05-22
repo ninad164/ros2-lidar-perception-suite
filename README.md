@@ -260,13 +260,12 @@ Input points: 517 | Accepted clusters: 3 | Output points: 409 | Processing time:
 
 ## Screenshots and GIFs
 
-```markdown
 ![RViz2 clustering demo](docs/gifs/rviz_clustering_demo.gif)
 
 ![3D bounding boxes](docs/images/bounding_boxes_rviz.png)
 
 ![Performance metrics](docs/images/performance_metrics_terminal.png)
-```
+
 ---
 
 ## Future Improvements
