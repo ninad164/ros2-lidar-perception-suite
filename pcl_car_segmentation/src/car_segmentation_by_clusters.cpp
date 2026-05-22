@@ -1,3 +1,4 @@
+#include <map>
 #include <filesystem>
 #include <chrono>
 #include <memory>
@@ -34,6 +35,11 @@
 
 using namespace std::chrono_literals;
 typedef pcl::PointXYZ PointT;
+struct Track {
+    int id;
+    Eigen::Vector3f centroid;
+    int age;
+};
 int car_id = 0;
 struct passwd *pw = getpwuid(getuid());
 const char *home_dir = pw -> pw_dir;
@@ -101,6 +107,41 @@ class CarSegmentation: public rclcpp ::Node{
         std::string input_topic_;
         std::string output_topic_;
     
+        std::map<int, Track> active_tracks_;
+        int next_track_id_ = 0;
+        float tracking_distance_threshold_ = 2.5;
+        
+        int assign_track_id(const Eigen::Vector3f& centroid)
+        {
+            int matched_id = -1;
+            float min_distance = tracking_distance_threshold_;
+
+            for (auto& [id, track] : active_tracks_) {
+                float distance = (track.centroid - centroid).norm();
+
+                if (distance < min_distance) {
+                    min_distance = distance;
+                    matched_id = id;
+                }
+            }
+
+            if (matched_id == -1) {
+                matched_id = next_track_id_++;
+
+                Track new_track;
+                new_track.id = matched_id;
+                new_track.centroid = centroid;
+                new_track.age = 0;
+
+                active_tracks_[matched_id] = new_track;
+            } else {
+                active_tracks_[matched_id].centroid = centroid;
+                active_tracks_[matched_id].age++;
+            }
+
+            return matched_id;
+        }
+        
         void save_cluster(pcl::PointCloud<PointT> :: Ptr cluster, std::string file_name){
         file_name = folder_path + file_name;
         pcl::io::savePCDFileASCII(file_name, *cluster);
@@ -158,6 +199,14 @@ class CarSegmentation: public rclcpp ::Node{
                 float width = max_pt[1] - min_pt[1];
                 float height = max_pt[2] - min_pt[2];
 
+                Eigen::Vector3f centroid(
+                    (min_pt[0] + max_pt[0]) / 2.0f,
+                    (min_pt[1] + max_pt[1]) / 2.0f,
+                    (min_pt[2] + max_pt[2]) / 2.0f
+                );
+
+                int track_id = assign_track_id(centroid);
+
                 if (length >= min_length_ && length <= max_length_ &&
                 width >= min_width_ && width <= max_width_ &&
                 height >= min_height_ && height <= max_height_) {
@@ -189,6 +238,33 @@ class CarSegmentation: public rclcpp ::Node{
                         marker.lifetime = rclcpp::Duration::from_seconds(0.1);
 
                         marker_array.markers.push_back(marker);
+
+                        visualization_msgs::msg::Marker text_marker;
+
+                        text_marker.header = input_cloud->header;
+                        text_marker.ns = "car_track_ids";
+                        text_marker.id = marker_id++;
+                        text_marker.type = visualization_msgs::msg::Marker::TEXT_VIEW_FACING;
+                        text_marker.action = visualization_msgs::msg::Marker::ADD;
+
+                        text_marker.pose.position.x = centroid.x();
+                        text_marker.pose.position.y = centroid.y();
+                        text_marker.pose.position.z = centroid.z() + 1.5;
+
+                        text_marker.pose.orientation.w = 1.0;
+
+                        text_marker.scale.z = 0.8;
+
+                        text_marker.color.r = 1.0;
+                        text_marker.color.g = 1.0;
+                        text_marker.color.b = 1.0;
+                        text_marker.color.a = 1.0;
+
+                        text_marker.text = "ID: " + std::to_string(track_id);
+
+                        text_marker.lifetime = rclcpp::Duration::from_seconds(0.1);
+
+                        marker_array.markers.push_back(text_marker);
                         
                         *all_clusters += *reasonable_cluster;
                         accepted_clusters++;
